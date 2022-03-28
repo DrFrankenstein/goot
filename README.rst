@@ -1,0 +1,8 @@
+====
+goot
+====
+
+Building
+========
+
+Use `cmake`.
