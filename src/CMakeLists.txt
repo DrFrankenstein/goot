@@ -4,3 +4,8 @@ target_sources(goot
 PRIVATE
 	goot.cpp
 )
+
+target_link_libraries(goot
+PRIVATE
+	Qt5::Widgets
+)
