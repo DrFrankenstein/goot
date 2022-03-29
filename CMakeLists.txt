@@ -6,6 +6,9 @@ project(
 	LANGUAGES CXX
 )
 
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup(TARGETS)
+
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 add_subdirectory(src)
