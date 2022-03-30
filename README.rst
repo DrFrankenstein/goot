@@ -5,4 +5,4 @@ goot
 Building
 ========
 
-Use `cmake`.
+Use `conan` and `cmake`.
