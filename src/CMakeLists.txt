@@ -7,6 +7,7 @@ PRIVATE
 
 target_link_libraries(goot
 PRIVATE
-	Qt5::Widgets
+	compile_options
+	CONAN_PKG::qt
 	CONAN_PKG::libgit2
 )

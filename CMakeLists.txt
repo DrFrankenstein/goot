@@ -6,9 +6,10 @@ project(
 	LANGUAGES CXX
 )
 
+add_library(compile_options INTERFACE)
+target_compile_features(compile_options INTERFACE cxx_std_20)
+
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(TARGETS)
-
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 add_subdirectory(src)
