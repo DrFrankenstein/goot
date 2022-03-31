@@ -1,3 +1,5 @@
+add_subdirectory(libgit2xx)
+
 add_executable(goot)
 
 target_sources(goot
@@ -9,5 +11,12 @@ target_link_libraries(goot
 PRIVATE
 	compile_options
 	CONAN_PKG::qt
-	CONAN_PKG::libgit2
+	git2xx
 )
+
+if(WIN32)
+	target_link_libraries(goot
+	PRIVATE
+		dwrite
+	)
+endif()

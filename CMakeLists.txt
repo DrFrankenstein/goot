@@ -12,4 +12,6 @@ target_compile_features(compile_options INTERFACE cxx_std_20)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(TARGETS)
 
+# find_package(Qt6 REQUIRED COMPONENTS Widgets)
+
 add_subdirectory(src)
