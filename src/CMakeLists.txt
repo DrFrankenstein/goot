@@ -10,7 +10,7 @@ PRIVATE
 target_link_libraries(goot
 PRIVATE
 	compile_options
-	CONAN_PKG::qt
+	Qt6::Widgets
 	git2xx
 )
 
