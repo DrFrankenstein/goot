@@ -1,3 +1,9 @@
+.. role:: sh(code)
+	:language: sh
+
+.. we're outside of Sphinx, so just style files as code
+.. role:: file(code)
+
 ====
 goot
 ====
@@ -26,14 +32,14 @@ If you haven't yet, `install cmake <https://cmake.org/download/>`_.
 	turns all that into build scripts that will work on your system.
 
 Create a directory for your build, and go to it.
-	e.g. :code:`mkdir out && cd out`. [#out]_
+	e.g. :sh:`mkdir out && cd out`. [#out]_
 
 Run CMake.
-	e.g. :code:`cmake ..`, or `follow these instructions <https://cmake.org/runningcmake/>`_.
+	e.g. :sh:`cmake ..`, or `follow these instructions <https://cmake.org/runningcmake/>`_.
 
 Build.
-	e.g. :code:`cmake --build .`, or run whatever build system you've
-	configured it to use (:code:`make`, :code:`ninja`, :code:`msbuild`...)
+	e.g. :sh:`cmake --build .`, or run whatever build system you've
+	configured it to use (:sh:`make`, :sh:`ninja`, :sh:`msbuild`...)
 
 .. [#out] :file:`.gitignore` is already configured to ignore :file:`out/`, so
 	this is the recommended directory to use.
