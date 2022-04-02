@@ -17,6 +17,6 @@ PRIVATE
 if(WIN32)
 	target_link_libraries(goot
 	PRIVATE
-		dwrite
+		dwrite	# QtGui (dep of QtWidgets) seems to need that
 	)
 endif()
