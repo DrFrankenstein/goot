@@ -12,5 +12,5 @@ INTERFACE
 
 target_link_libraries(git2xx
 INTERFACE
-	CONAN_PKG::libgit2
+	libgit2::libgit2
 )
