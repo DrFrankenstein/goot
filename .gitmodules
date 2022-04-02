@@ -1,0 +1,4 @@
+[submodule "3rd-party/cmake-conan"]
+	path = 3rd-party/cmake-conan
+	url = https://github.com/conan-io/cmake-conan
+	branch = release/0.18
