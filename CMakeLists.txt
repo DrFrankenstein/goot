@@ -18,15 +18,15 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 include(3rd-party/cmake-conan/conan.cmake)
 
 conan_cmake_configure(
-REQUIRES
-	openssl/1.1.1m
-	libgit2/1.3.0
-	qt/6.2.4
-OPTIONS
-	qt:qttools=True
-	qt:shared=True
-GENERATORS
-	cmake_find_package
+	REQUIRES
+		openssl/1.1.1m
+		libgit2/1.3.0
+		qt/6.2.4
+	OPTIONS
+		qt:qttools=True
+		qt:shared=True
+	GENERATORS
+		cmake_find_package
 )
 
 conan_cmake_autodetect(conan_settings)

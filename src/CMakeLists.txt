@@ -2,28 +2,31 @@ add_subdirectory(libgit2xx)
 
 add_executable(goot)
 
-target_sources(goot
-PRIVATE
-	goot.cpp
+target_sources(
+	goot
+	PRIVATE
+		goot.cpp
 
-	res/main.qrc
+		res/main.qrc
 
-	Gui/MainWindow.ui
-	Gui/MainWindow.hpp
-	Gui/MainWindow.cpp
+		Gui/MainWindow.ui
+		Gui/MainWindow.hpp
+		Gui/MainWindow.cpp
 )
 
-target_link_libraries(goot
-PRIVATE
-	compile_options
-	Qt6::Widgets
-	git2xx
+target_link_libraries(
+	goot
+	PRIVATE
+		compile_options
+		Qt6::Widgets
+		git2xx
 )
 
 if(WIN32)
-	target_link_libraries(goot
-	PRIVATE
-		dwrite	# QtGui (dep of QtWidgets) seems to need that
+	target_link_libraries(
+		goot
+		PRIVATE
+			dwrite	# QtGui (dep of QtWidgets) seems to need that
 	)
 
 	if(CMAKE_BUILD_TYPE STREQUAL Debug)
@@ -36,7 +39,8 @@ if(WIN32)
 
 	find_program(DEPLOYQT windeployqt REQUIRED)
 
-	add_custom_target(windeployqt
+	add_custom_target(
+		windeployqt
 		ALL
 		${DEPLOYQT} ${DEPLOYQT_BUILD_TYPE} $<TARGET_FILE:goot>
 		DEPENDS goot
