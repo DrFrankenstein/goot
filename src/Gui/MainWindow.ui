@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>goot</string>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QMdiArea" name="mdiArea"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuRepository">
+    <property name="title">
+     <string>&amp;Repository</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionClone"/>
+    <addaction name="separator"/>
+    <addaction name="action_Open"/>
+    <addaction name="separator"/>
+    <addaction name="action_Quit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionWhat_s_This"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuRepository"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNew"/>
+  </widget>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-repository-48.png</normaloff>:/icons/icons/fluency/icons8-repository-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;New...</string>
+   </property>
+   <property name="statusTip">
+    <string>Create a new repository.</string>
+   </property>
+  </action>
+  <action name="actionClone">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-copy-link-48.png</normaloff>:/icons/icons/fluency/icons8-copy-link-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Clone...</string>
+   </property>
+   <property name="statusTip">
+    <string>Clone an existing repository into a new location</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-about-48.png</normaloff>:/icons/icons/fluency/icons8-about-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;About goot...</string>
+   </property>
+   <property name="statusTip">
+    <string>Show information about this application</string>
+   </property>
+  </action>
+  <action name="actionWhat_s_This">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-info-popup-48.png</normaloff>:/icons/icons/fluency/icons8-info-popup-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;What's This?</string>
+   </property>
+   <property name="statusTip">
+    <string>Show information about a specific window control</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F1</string>
+   </property>
+  </action>
+  <action name="action_Open">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-opened-folder-48.png</normaloff>:/icons/icons/fluency/icons8-opened-folder-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open...</string>
+   </property>
+   <property name="statusTip">
+    <string>Open an existing repository</string>
+   </property>
+  </action>
+  <action name="action_Quit">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-logout-48.png</normaloff>:/icons/icons/fluency/icons8-logout-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="statusTip">
+    <string>Close goot</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+F4</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-user-manual-48.png</normaloff>:/icons/icons/fluency/icons8-user-manual-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Help...</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the user manual</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../res/main.qrc"/>
+ </resources>
+ <connections/>
+</ui>

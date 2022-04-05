@@ -5,6 +5,12 @@ add_executable(goot)
 target_sources(goot
 PRIVATE
 	goot.cpp
+
+	res/main.qrc
+
+	Gui/MainWindow.ui
+	Gui/MainWindow.hpp
+	Gui/MainWindow.cpp
 )
 
 target_link_libraries(goot
