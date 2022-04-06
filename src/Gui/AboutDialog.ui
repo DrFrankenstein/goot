@@ -7,15 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>509</width>
-    <height>390</height>
+    <height>389</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>About goot</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../res/main.qrc">
+    <normaloff>:/icons/icons/fluency/icons8-about-48.png</normaloff>:/icons/icons/fluency/icons8-about-48.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="labelGoot">
      <property name="font">
       <font>
        <pointsize>24</pointsize>
@@ -31,9 +35,9 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="labelVersion">
      <property name="text">
-      <string>Version %1</string>
+      <string extracomment="%1 = app version">Version %1</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -41,9 +45,9 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="labelCopyright">
      <property name="text">
-      <string>Copyright © %1 Carl Tessier &amp; Contributors</string>
+      <string extracomment="%1 = copyright year">Copyright © %1 Carl Tessier &amp; Contributors</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -51,7 +55,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QPlainTextEdit" name="plainTextEdit">
+    <widget class="QPlainTextEdit" name="plainTextEditLicense">
      <property name="readOnly">
       <bool>true</bool>
      </property>
@@ -95,14 +99,14 @@ SOFTWARE.</string>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="labelQt">
        <property name="text">
-        <string>Built with Qt %1</string>
+        <string extracomment="%1 = Qt version">Built with Qt %1</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pushButtonQtLicense">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -117,7 +121,7 @@ SOFTWARE.</string>
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="labelIcons8">
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Icons by &lt;a href=&quot;https://icons8.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Icons8&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
@@ -126,7 +130,10 @@ SOFTWARE.</string>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QToolButton" name="toolButton">
+      <widget class="QToolButton" name="toolButtonGitHub">
+       <property name="toolTip">
+        <string>Fork Me on GitHub!</string>
+       </property>
        <property name="text">
         <string>...</string>
        </property>
@@ -159,5 +166,22 @@ SOFTWARE.</string>
  <resources>
   <include location="../res/main.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>AboutDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>276</x>
+     <y>359</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

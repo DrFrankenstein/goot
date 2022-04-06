@@ -14,6 +14,10 @@ class AboutDialog : public QDialog
 	public:
 	explicit AboutDialog(QWidget* parent = nullptr);
 
+	public slots:
+	void on_pushButtonQtLicense_clicked();
+	void on_toolButtonGitHub_clicked();
+
 	private:
 	Ui::AboutDialog ui;
 };
