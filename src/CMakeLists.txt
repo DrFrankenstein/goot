@@ -12,6 +12,10 @@ target_sources(
 		Gui/MainWindow.ui
 		Gui/MainWindow.hpp
 		Gui/MainWindow.cpp
+
+		Gui/AboutDialog.ui
+		Gui/AboutDialog.hpp
+		Gui/AboutDialog.cpp
 )
 
 target_link_libraries(

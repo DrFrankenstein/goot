@@ -3,6 +3,7 @@
 #include "ui_MainWindow.h"
 
 #include <QMainWindow>
+#include <QWidget>
 
 namespace Gui
 {

@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/qt_logo_green_32x32px.png</file>
+    <file>icons/fluency/icons8-github-48.png</file>
+    <file>icons/fluency/icons8-github-96.png</file>
+    <file>icons/qt_logo_green_64x64px.png</file>
     <file>icons/fluency/icons8-user-manual-48.png</file>
     <file>icons/fluency/icons8-user-manual-96.png</file>
     <file>icons/fluency/icons8-logout-48.png</file>

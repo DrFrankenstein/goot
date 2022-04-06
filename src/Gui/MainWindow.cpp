@@ -1,5 +1,6 @@
 #include "MainWindow.hpp"
 
+#include <QMainWindow>
 #include <QWidget>
 
 namespace Gui
