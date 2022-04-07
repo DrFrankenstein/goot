@@ -15,7 +15,7 @@ class MainWindow : public QMainWindow
 	explicit MainWindow(QWidget* parent = nullptr);
 
 	public slots:
-	void on_actionAbout_triggered(bool checked = false);
+	auto on_actionAbout_triggered(bool checked = false) -> void;
 
 	private:
 	Ui::MainWindow ui;
