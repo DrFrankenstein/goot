@@ -6,8 +6,7 @@ project(
 	LANGUAGES CXX
 )
 
-add_library(compile_options INTERFACE)
-target_compile_features(compile_options INTERFACE cxx_std_20)
+include(compile_options.cmake)
 
 # replace with qt_standard_project_setup() once we're on 6.4.
 set(CMAKE_AUTOMOC ON)
