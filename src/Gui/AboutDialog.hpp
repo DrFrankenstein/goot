@@ -15,8 +15,8 @@ class AboutDialog : public QDialog
 	explicit AboutDialog(QWidget* parent = nullptr);
 
 	public slots:
-	void on_pushButtonQtLicense_clicked();
-	void on_toolButtonGitHub_clicked();
+	auto on_pushButtonQtLicense_clicked() -> void;
+	auto on_toolButtonGitHub_clicked() -> void;
 
 	private:
 	Ui::AboutDialog ui;
