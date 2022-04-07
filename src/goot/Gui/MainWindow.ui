@@ -54,9 +54,9 @@
     <addaction name="actionNew"/>
     <addaction name="actionClone"/>
     <addaction name="separator"/>
-    <addaction name="action_Open"/>
+    <addaction name="actionOpen"/>
     <addaction name="separator"/>
-    <addaction name="action_Quit"/>
+    <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -82,6 +82,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -134,7 +135,7 @@
     <string>Shift+F1</string>
    </property>
   </action>
-  <action name="action_Open">
+  <action name="actionOpen">
    <property name="icon">
     <iconset resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-opened-folder-48.png</normaloff>:/icons/icons/fluency/icons8-opened-folder-48.png</iconset>
@@ -146,7 +147,7 @@
     <string>Open an existing repository</string>
    </property>
   </action>
-  <action name="action_Quit">
+  <action name="actionQuit">
    <property name="icon">
     <iconset resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-logout-48.png</normaloff>:/icons/icons/fluency/icons8-logout-48.png</iconset>
