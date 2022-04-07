@@ -2,8 +2,16 @@
 
 #include <QDesktopServices>
 #include <QDialog>
+#include <QtGlobal>
 #include <QUrl>
 #include <QWidget>
+#include <string_view>
+
+#include <config.hpp>
+
+#include "utils.hpp"
+
+using std::string_view;
 
 namespace Gui
 {

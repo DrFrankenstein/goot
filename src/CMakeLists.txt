@@ -9,6 +9,8 @@ target_sources(
 
 		res/main.qrc
 
+		Gui/utils.hpp
+
 		Gui/MainWindow.ui
 		Gui/MainWindow.hpp
 		Gui/MainWindow.cpp
@@ -16,6 +18,13 @@ target_sources(
 		Gui/AboutDialog.ui
 		Gui/AboutDialog.hpp
 		Gui/AboutDialog.cpp
+)
+
+configure_file(config.hpp.in config.hpp @ONLY)
+target_include_directories(
+	goot
+	PRIVATE
+		${CMAKE_CURRENT_BINARY_DIR}
 )
 
 target_link_libraries(

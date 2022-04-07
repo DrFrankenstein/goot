@@ -1,0 +1,10 @@
+#pragma once
+
+#include <string_view>
+
+namespace Config
+{
+static constexpr std::string_view PROJECT_VERSION { "@PROJECT_VERSION@" };
+static constexpr std::string_view PROJECT_BUILD { "@PROJECT_BUILD@" };
+static constexpr std::string_view BUILD_YEAR { "@BUILD_YEAR@" };
+}

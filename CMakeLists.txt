@@ -41,4 +41,18 @@ conan_cmake_install(
 find_package(libgit2 REQUIRED)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
+find_package(Git)
+if(NOT ${GIT_FOUND})
+	set(PROJECT_BUILD unknown)
+else()
+	execute_process(
+		COMMAND ${GIT_EXECUTABLE} describe --always --dirty
+		WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+		OUTPUT_VARIABLE PROJECT_BUILD
+		OUTPUT_STRIP_TRAILING_WHITESPACE
+	)
+endif()
+
+string(TIMESTAMP BUILD_YEAR "%Y")
+
 add_subdirectory(src)
