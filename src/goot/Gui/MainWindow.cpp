@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget* parent):
 	ui.setupUi(this);
 }
 
-auto MainWindow::on_actionAbout_triggered(bool checked) -> void
+auto MainWindow::on_actionAbout_triggered(bool) -> void
 {
 	AboutDialog about;
 	about.exec();
