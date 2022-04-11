@@ -86,8 +86,8 @@
   </widget>
   <action name="actionNew">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
-     <normaloff>:/icons/icons/fluency/icons8-repository-48.png</normaloff>:/icons/icons/fluency/icons8-repository-48.png</iconset>
+    <iconset theme="document-new">
+     <normaloff>../res/icons/fluency/icons8-new-repository-48.png</normaloff>../res/icons/fluency/icons8-new-repository-48.png</iconset>
    </property>
    <property name="text">
     <string>&amp;New...</string>
@@ -110,7 +110,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
+    <iconset theme="help-about" resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-about-48.png</normaloff>:/icons/icons/fluency/icons8-about-48.png</iconset>
    </property>
    <property name="text">
@@ -137,7 +137,7 @@
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
+    <iconset theme="document-open" resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-opened-folder-48.png</normaloff>:/icons/icons/fluency/icons8-opened-folder-48.png</iconset>
    </property>
    <property name="text">
@@ -149,7 +149,7 @@
   </action>
   <action name="actionQuit">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
+    <iconset theme="application-exit" resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-logout-48.png</normaloff>:/icons/icons/fluency/icons8-logout-48.png</iconset>
    </property>
    <property name="text">
@@ -164,11 +164,11 @@
   </action>
   <action name="actionHelp">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
+    <iconset theme="help-contents" resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-user-manual-48.png</normaloff>:/icons/icons/fluency/icons8-user-manual-48.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Help...</string>
+    <string>&amp;Contents...</string>
    </property>
    <property name="statusTip">
     <string>Open the user manual</string>
