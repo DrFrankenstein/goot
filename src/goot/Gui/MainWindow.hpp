@@ -5,6 +5,8 @@
 #include <QMainWindow>
 #include <QObject>
 
+#include "Git.hpp"
+
 class QWidget;
 
 namespace Gui
@@ -22,6 +24,7 @@ class MainWindow : public QMainWindow
 
 	private:
 	Ui::MainWindow ui;
+	Git::Git git;
 };
 
 }

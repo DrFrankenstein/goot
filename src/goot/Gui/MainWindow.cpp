@@ -5,6 +5,9 @@
 
 #include "AboutDialog.hpp"
 
+#include "Error.hpp"
+#include "Git.hpp"
+
 class QWidget;
 
 namespace Gui
@@ -21,6 +24,15 @@ auto MainWindow::on_actionOpen_triggered() -> void
 
 	if (path.isEmpty())
 		return;
+
+	try
+	{
+		auto repo = git.openRepository(path.toStdString());
+	}
+    catch (Git::Error error)
+	{
+		// TODO
+	}
 }
 
 auto MainWindow::on_actionAbout_triggered() -> void
