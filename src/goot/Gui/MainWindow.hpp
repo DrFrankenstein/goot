@@ -4,8 +4,7 @@
 
 #include <QMainWindow>
 #include <QObject>
-
-#include "Git.hpp"
+#include <git2xx/Git.hpp>
 
 class QWidget;
 

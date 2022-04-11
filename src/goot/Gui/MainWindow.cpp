@@ -1,12 +1,11 @@
 #include "MainWindow.hpp"
 
-#include <QFileDialog>
-#include <QMainWindow>
-
 #include "AboutDialog.hpp"
 
-#include "Error.hpp"
-#include "Git.hpp"
+#include <QFileDialog>
+#include <QMainWindow>
+#include <git2xx/Error.hpp>
+#include <git2xx/Git.hpp>
 
 class QWidget;
 
@@ -29,7 +28,7 @@ auto MainWindow::on_actionOpen_triggered() -> void
 	{
 		auto repo = git.openRepository(path.toStdString());
 	}
-    catch (Git::Error error)
+	catch (Git::Error error)
 	{
 		// TODO
 	}
