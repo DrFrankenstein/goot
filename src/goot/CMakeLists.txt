@@ -13,6 +13,10 @@ target_sources(
 		Gui/MainWindow.hpp
 		Gui/MainWindow.cpp
 
+		Gui/RepositoryWindow.ui
+		Gui/RepositoryWindow.hpp
+		Gui/RepositoryWindow.cpp
+
 		Gui/AboutDialog.ui
 		Gui/AboutDialog.hpp
 		Gui/AboutDialog.cpp

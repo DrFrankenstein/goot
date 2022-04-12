@@ -1,11 +1,15 @@
 #include "MainWindow.hpp"
 
 #include "AboutDialog.hpp"
+#include "RepositoryWindow.hpp"
 
 #include <QFileDialog>
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QMdiSubWindow>
 #include <git2xx/Error.hpp>
 #include <git2xx/Git.hpp>
+#include <utility>
 
 class QWidget;
 
@@ -27,10 +31,12 @@ auto MainWindow::on_actionOpen_triggered() -> void
 	try
 	{
 		auto repo = git.openRepository(path.toStdString());
+		auto& subwindow = *ui.mdiArea->addSubWindow(new RepositoryWindow(std::move(repo)));
+		subwindow.show();
 	}
-	catch (Git::Error error)
+	catch (const Git::Error& error)
 	{
-		// TODO
+		QMessageBox::warning(this, tr("Could not open repository"), error.what());
 	}
 }
 

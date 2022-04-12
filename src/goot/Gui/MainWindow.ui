@@ -86,8 +86,8 @@
   </widget>
   <action name="actionNew">
    <property name="icon">
-    <iconset theme="document-new">
-     <normaloff>../res/icons/fluency/icons8-new-repository-48.png</normaloff>../res/icons/fluency/icons8-new-repository-48.png</iconset>
+    <iconset theme="document-new" resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-new-repository-48.png</normaloff>:/icons/icons/fluency/icons8-new-repository-48.png</iconset>
    </property>
    <property name="text">
     <string>&amp;New...</string>
