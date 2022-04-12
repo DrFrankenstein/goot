@@ -121,6 +121,15 @@ class Git
 		return repo;
 	}
 
+	auto initRepository(const std::string& path, git_repository_init_options& options)
+	{
+		Repository repo;
+		const auto status = git_repository_init_ext(&repo, path.c_str(), &options);
+		ensureOk(status);
+
+		return repo;
+	}
+
 	private:
 	template<class Out, class... Args>
 	auto getOpt(git_libgit2_opt_t opt, Args... args)
