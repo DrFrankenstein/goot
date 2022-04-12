@@ -67,7 +67,15 @@
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menu_Window">
+    <property name="title">
+     <string>&amp;Window</string>
+    </property>
+    <addaction name="actionCascade"/>
+    <addaction name="actionTile"/>
+   </widget>
    <addaction name="menuRepository"/>
+   <addaction name="menu_Window"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -177,9 +185,66 @@
     <string>F1</string>
    </property>
   </action>
+  <action name="actionCascade">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-static-view-level2-48.png</normaloff>:/icons/icons/fluency/icons8-static-view-level2-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Cascade</string>
+   </property>
+   <property name="statusTip">
+    <string>Lay out all subwindows in a cascade</string>
+   </property>
+  </action>
+  <action name="actionTile">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-view-all-48.png</normaloff>:/icons/icons/fluency/icons8-view-all-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Tile</string>
+   </property>
+   <property name="statusTip">
+    <string>Lay out all subwindows as tiles</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../res/main.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionCascade</sender>
+   <signal>triggered()</signal>
+   <receiver>mdiArea</receiver>
+   <slot>cascadeSubWindows()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionTile</sender>
+   <signal>triggered()</signal>
+   <receiver>mdiArea</receiver>
+   <slot>tileSubWindows()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

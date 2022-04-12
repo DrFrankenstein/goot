@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/fluency/icons8-static-view-level2-48.png</file>
+    <file>icons/fluency/icons8-static-view-level2-96.png</file>
+    <file>icons/fluency/icons8-view-all-48.png</file>
+    <file>icons/fluency/icons8-view-all-96.png</file>
     <file>icons/fluency/icons8-new-repository-48.png</file>
     <file>icons/fluency/icons8-repository-48.png</file>
     <file>icons/fluency/icons8-repository-96.png</file>
