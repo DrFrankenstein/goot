@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RepositoryWindow</class>
+ <widget class="QWidget" name="RepositoryWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>674</width>
+    <height>528</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Repository</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../res/main.qrc">
+    <normaloff>:/icons/icons/fluency/icons8-repository-48.png</normaloff>:/icons/icons/fluency/icons8-repository-48.png</iconset>
+  </property>
+ </widget>
+ <resources>
+  <include location="../res/main.qrc"/>
+ </resources>
+ <connections/>
+</ui>

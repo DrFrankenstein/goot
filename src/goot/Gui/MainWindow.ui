@@ -54,20 +54,28 @@
     <addaction name="actionNew"/>
     <addaction name="actionClone"/>
     <addaction name="separator"/>
-    <addaction name="action_Open"/>
+    <addaction name="actionOpen"/>
     <addaction name="separator"/>
-    <addaction name="action_Quit"/>
+    <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>&amp;Help</string>
     </property>
     <addaction name="actionHelp"/>
-    <addaction name="actionWhat_s_This"/>
+    <addaction name="actionWhatsThis"/>
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menu_Window">
+    <property name="title">
+     <string>&amp;Window</string>
+    </property>
+    <addaction name="actionCascade"/>
+    <addaction name="actionTile"/>
+   </widget>
    <addaction name="menuRepository"/>
+   <addaction name="menu_Window"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -82,11 +90,12 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
-     <normaloff>:/icons/icons/fluency/icons8-repository-48.png</normaloff>:/icons/icons/fluency/icons8-repository-48.png</iconset>
+    <iconset theme="document-new" resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-new-repository-48.png</normaloff>:/icons/icons/fluency/icons8-new-repository-48.png</iconset>
    </property>
    <property name="text">
     <string>&amp;New...</string>
@@ -109,7 +118,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
+    <iconset theme="help-about" resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-about-48.png</normaloff>:/icons/icons/fluency/icons8-about-48.png</iconset>
    </property>
    <property name="text">
@@ -119,7 +128,7 @@
     <string>Show information about this application</string>
    </property>
   </action>
-  <action name="actionWhat_s_This">
+  <action name="actionWhatsThis">
    <property name="icon">
     <iconset resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-info-popup-48.png</normaloff>:/icons/icons/fluency/icons8-info-popup-48.png</iconset>
@@ -134,9 +143,9 @@
     <string>Shift+F1</string>
    </property>
   </action>
-  <action name="action_Open">
+  <action name="actionOpen">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
+    <iconset theme="document-open" resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-opened-folder-48.png</normaloff>:/icons/icons/fluency/icons8-opened-folder-48.png</iconset>
    </property>
    <property name="text">
@@ -146,9 +155,9 @@
     <string>Open an existing repository</string>
    </property>
   </action>
-  <action name="action_Quit">
+  <action name="actionQuit">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
+    <iconset theme="application-exit" resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-logout-48.png</normaloff>:/icons/icons/fluency/icons8-logout-48.png</iconset>
    </property>
    <property name="text">
@@ -163,11 +172,11 @@
   </action>
   <action name="actionHelp">
    <property name="icon">
-    <iconset resource="../res/main.qrc">
+    <iconset theme="help-contents" resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-user-manual-48.png</normaloff>:/icons/icons/fluency/icons8-user-manual-48.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Help...</string>
+    <string>&amp;Contents...</string>
    </property>
    <property name="statusTip">
     <string>Open the user manual</string>
@@ -176,9 +185,66 @@
     <string>F1</string>
    </property>
   </action>
+  <action name="actionCascade">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-static-view-level2-48.png</normaloff>:/icons/icons/fluency/icons8-static-view-level2-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Cascade</string>
+   </property>
+   <property name="statusTip">
+    <string>Lay out all subwindows in a cascade</string>
+   </property>
+  </action>
+  <action name="actionTile">
+   <property name="icon">
+    <iconset resource="../res/main.qrc">
+     <normaloff>:/icons/icons/fluency/icons8-view-all-48.png</normaloff>:/icons/icons/fluency/icons8-view-all-48.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Tile</string>
+   </property>
+   <property name="statusTip">
+    <string>Lay out all subwindows as tiles</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../res/main.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionCascade</sender>
+   <signal>triggered()</signal>
+   <receiver>mdiArea</receiver>
+   <slot>cascadeSubWindows()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionTile</sender>
+   <signal>triggered()</signal>
+   <receiver>mdiArea</receiver>
+   <slot>tileSubWindows()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

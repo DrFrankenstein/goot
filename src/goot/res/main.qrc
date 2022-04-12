@@ -1,5 +1,13 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/fluency/icons8-static-view-level2-48.png</file>
+    <file>icons/fluency/icons8-static-view-level2-96.png</file>
+    <file>icons/fluency/icons8-view-all-48.png</file>
+    <file>icons/fluency/icons8-view-all-96.png</file>
+    <file>icons/fluency/icons8-new-repository-48.png</file>
+    <file>icons/fluency/icons8-repository-48.png</file>
+    <file>icons/fluency/icons8-repository-96.png</file>
+    <file>icons/fluency/icons8-new-repository-96.png</file>
     <file>icons/qt_logo_green_32x32px.png</file>
     <file>icons/fluency/icons8-github-48.png</file>
     <file>icons/fluency/icons8-github-96.png</file>
@@ -16,7 +24,5 @@
     <file>icons/fluency/icons8-opened-folder-48.png</file>
     <file>icons/fluency/icons8-opened-folder-96.png</file>
     <file>icons/fluency/icons8-copy-link-96.png</file>
-    <file>icons/fluency/icons8-repository-48.png</file>
-    <file>icons/fluency/icons8-repository-96.png</file>
   </qresource>
 </RCC>
