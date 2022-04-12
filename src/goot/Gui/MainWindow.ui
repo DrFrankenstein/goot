@@ -63,7 +63,7 @@
      <string>&amp;Help</string>
     </property>
     <addaction name="actionHelp"/>
-    <addaction name="actionWhat_s_This"/>
+    <addaction name="actionWhatsThis"/>
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
@@ -120,7 +120,7 @@
     <string>Show information about this application</string>
    </property>
   </action>
-  <action name="actionWhat_s_This">
+  <action name="actionWhatsThis">
    <property name="icon">
     <iconset resource="../res/main.qrc">
      <normaloff>:/icons/icons/fluency/icons8-info-popup-48.png</normaloff>:/icons/icons/fluency/icons8-info-popup-48.png</iconset>

@@ -19,6 +19,8 @@ class MainWindow : public QMainWindow
 
 	public slots:
 	auto on_actionOpen_triggered() -> void;
+	auto on_actionQuit_triggered() -> void;
+	auto on_actionWhatsThis_triggered() -> void;
 	auto on_actionAbout_triggered() -> void;
 
 	private:

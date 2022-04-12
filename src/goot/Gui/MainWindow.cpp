@@ -3,10 +3,12 @@
 #include "AboutDialog.hpp"
 #include "RepositoryWindow.hpp"
 
+#include <QApplication>
 #include <QFileDialog>
 #include <QMainWindow>
-#include <QMessageBox>
 #include <QMdiSubWindow>
+#include <QMessageBox>
+#include <QWhatsThis>
 #include <git2xx/Error.hpp>
 #include <git2xx/Git.hpp>
 #include <utility>
@@ -30,7 +32,7 @@ auto MainWindow::on_actionOpen_triggered() -> void
 
 	try
 	{
-		auto repo = git.openRepository(path.toStdString());
+		auto repo       = git.openRepository(path.toStdString());
 		auto& subwindow = *ui.mdiArea->addSubWindow(new RepositoryWindow(std::move(repo)));
 		subwindow.show();
 	}
@@ -38,6 +40,16 @@ auto MainWindow::on_actionOpen_triggered() -> void
 	{
 		QMessageBox::warning(this, tr("Could not open repository"), error.what());
 	}
+}
+
+auto MainWindow::on_actionQuit_triggered() -> void
+{
+	QApplication::exit();
+}
+
+auto MainWindow::on_actionWhatsThis_triggered() -> void
+{
+	QWhatsThis::enterWhatsThisMode();
 }
 
 auto MainWindow::on_actionAbout_triggered() -> void
