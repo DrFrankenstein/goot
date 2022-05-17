@@ -8,6 +8,11 @@
 
 class QWidget;
 
+namespace Git
+{
+class Repository;
+}
+
 namespace Gui
 {
 class MainWindow : public QMainWindow
@@ -18,12 +23,15 @@ class MainWindow : public QMainWindow
 	explicit MainWindow(QWidget* parent = nullptr);
 
 	public slots:
+	auto on_actionNew_triggered() -> void;
 	auto on_actionOpen_triggered() -> void;
 	auto on_actionQuit_triggered() -> void;
 	auto on_actionWhatsThis_triggered() -> void;
 	auto on_actionAbout_triggered() -> void;
 
 	private:
+	auto openRepo(Git::Repository& repo) -> void;
+
 	Ui::MainWindow ui;
 	Git::Git git;
 };

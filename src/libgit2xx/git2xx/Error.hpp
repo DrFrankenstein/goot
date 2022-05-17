@@ -33,7 +33,7 @@ class Error
 
 inline auto ensureOk(int status)
 {
-	if (status < 0)
+	if (status < GIT_OK)
 		throw Error { status };
 }
 }
