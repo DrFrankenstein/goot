@@ -16,10 +16,17 @@ target_sources(
 		Gui/RepositoryWindow.ui
 		Gui/RepositoryWindow.hpp
 		Gui/RepositoryWindow.cpp
+		
+		Gui/InitWizard.ui
+		Gui/InitWizard.hpp
+		Gui/InitWizard.cpp
 
 		Gui/AboutDialog.ui
 		Gui/AboutDialog.hpp
 		Gui/AboutDialog.cpp
+
+		Gui/utils/BrowseInput.hpp
+		Gui/utils/BrowseInput.cpp
 )
 
 configure_file(config.hpp.in config.hpp @ONLY)

@@ -6,6 +6,7 @@
 #include "StrArray.hpp"
 
 #include <cstddef>
+//#include <filesystem>
 #include <git2/config.h>
 #include <git2/global.h>
 #include <git2/repository.h>
@@ -128,6 +129,19 @@ class Git
 		ensureOk(status);
 
 		return repo;
+	}
+
+	auto discoverRepository(const std::string& path, bool across_fs = false, const std::string& ceiling_dirs = {})
+	{
+		Buffer foundPath;
+		const auto status = git_repository_discover(&foundPath, path.c_str(), across_fs, ceiling_dirs.c_str());
+
+		// in the case of ENOTFOUND, just return an empty path
+		// git_repository_discover is the only way to test for an existing repo
+		if (status != GIT_OK && status != GIT_ENOTFOUND)
+			throw Error { status };
+
+		return foundPath;
 	}
 
 	private:
