@@ -72,10 +72,13 @@ auto InitWizard::page1Location_initialize() -> void
 auto InitWizard::page1Location_validate() -> bool
 {
 	const auto path = ui.lineEditPath->text();
+
+	if (path.isEmpty())
+		return false;
+
 	const auto dir = QDir { path };
 
 	// ???: check whether path looks valid at all?
-	// TODO: check whether one of the parents is a repo (and warn)
 
 	if (!dir.exists())
 	{
@@ -175,8 +178,6 @@ auto InitWizard::makeOptions() -> Git::RepositoryInitOptions
 {
 	Git::RepositoryInitOptions options;
 
-	// we don't want to re-init an existing repository by default; we want an
-	// opportunity to warn the user first.
 	if (!m_reinit)
 		options.flags |= GIT_REPOSITORY_INIT_NO_REINIT;
 
