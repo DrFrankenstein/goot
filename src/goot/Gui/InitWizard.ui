@@ -82,7 +82,7 @@
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <widget class="QLineEdit" name="lineEditRef">
-      <property name="text">
+      <property name="placeholderText">
        <string>master</string>
       </property>
      </widget>
@@ -107,6 +107,14 @@
     <item>
      <widget class="QCheckBox" name="checkBoxCustomWorkdir">
       <property name="text">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>360</height>
+   </rect>
+  </property>
        <string>Check out at a &amp;custom location:</string>
       </property>
      </widget>
@@ -144,10 +152,9 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;
 &lt;p&gt;The following actions will be performed:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Create repository &lt;strong&gt;goot/.git&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Create default branch &lt;strong&gt;main&lt;/strong&gt;. &lt;a href=&quot;branch&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Create repository &lt;strong&gt;%1&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Create default branch &lt;strong&gt;%2&lt;/strong&gt;. &lt;a href=&quot;branch&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Check out default branch in &lt;strong&gt;goot/&lt;/strong&gt;. &lt;a href=&quot;checkout&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Set access permissions of &lt;strong&gt;goot&lt;/strong&gt; to &lt;strong&gt;Default&lt;/strong&gt;. &lt;a href=&quot;perms&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/body&gt;&lt;/html&gt;</string>
       </property>
