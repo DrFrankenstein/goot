@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ui_InitWizard.h"
-#include "utils/BrowseInput.hpp"
+#include "../utils/BrowseInput.hpp"
 
 #include <QByteArray>
 #include <QWizard>

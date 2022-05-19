@@ -6,7 +6,7 @@
    <string>Create Repository</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../res/main.qrc">
+   <iconset resource="../../res/main.qrc">
     <normaloff>:/icons/icons/fluency/icons8-new-repository-48.png</normaloff>:/icons/icons/fluency/icons8-new-repository-48.png</iconset>
   </property>
   <widget class="QWizardPage" name="page1Location">
@@ -107,14 +107,6 @@
     <item>
      <widget class="QCheckBox" name="checkBoxCustomWorkdir">
       <property name="text">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>500</width>
-    <height>360</height>
-   </rect>
-  </property>
        <string>Check out at a &amp;custom location:</string>
       </property>
      </widget>
@@ -164,7 +156,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../res/main.qrc"/>
+  <include location="../../res/main.qrc"/>
  </resources>
  <connections/>
 </ui>
