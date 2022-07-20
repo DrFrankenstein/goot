@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Page3Ref</class>
+ <widget class="QWizardPage" name="Page3Ref">
+  <property name="windowTitle">
+   <string>WizardPage</string>
+  </property>
+  <property name="title">
+   <string>Default Branch</string>
+  </property>
+  <property name="subTitle">
+   <string>Pick a name for your repository's default branch.</string>
+  </property>
+  <attribute name="pageId">
+   <string notr="true">3</string>
+  </attribute>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLineEdit" name="lineEditRef">
+     <property name="placeholderText">
+      <string>master</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>This branch will be created and checked out into your working copy once your repository is created.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="checkBoxBare">
+     <property name="text">
+      <string>&amp;Do not check out (create a bare repository)</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="checkBoxCustomWorkdir">
+     <property name="text">
+      <string>Check out at a &amp;custom location:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLineEdit" name="lineEditWorkdir"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonBrowseWorkdir">
+       <property name="text">
+        <string>&amp;Browse...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

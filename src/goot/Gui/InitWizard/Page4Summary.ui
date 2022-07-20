@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Page4Summary</class>
+ <widget class="QWizardPage" name="Page4Summary">
+  <property name="windowTitle">
+   <string>WizardPage</string>
+  </property>
+  <property name="title">
+   <string>Summary</string>
+  </property>
+  <property name="subTitle">
+   <string>Creating repository %1</string>
+  </property>
+  <attribute name="pageId">
+   <string notr="true">4</string>
+  </attribute>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="labelSummary">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;
+&lt;p&gt;The following actions will be performed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create repository &lt;strong&gt;%1&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Create default branch &lt;strong&gt;%2&lt;/strong&gt;. &lt;a href=&quot;branch&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Check out default branch in &lt;strong&gt;goot/&lt;/strong&gt;. &lt;a href=&quot;checkout&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

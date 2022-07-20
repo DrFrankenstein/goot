@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>InitWizard</class>
  <widget class="QWizard" name="InitWizard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>360</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>Create Repository</string>
   </property>
@@ -9,7 +17,7 @@
    <iconset resource="../../res/main.qrc">
     <normaloff>:/icons/icons/fluency/icons8-new-repository-48.png</normaloff>:/icons/icons/fluency/icons8-new-repository-48.png</iconset>
   </property>
-  <widget class="QWizardPage" name="page1Location">
+  <widget class="Page1Location" name="page1Location">
    <property name="title">
     <string>Repository Location</string>
    </property>
@@ -23,23 +31,9 @@
     <property name="leftMargin">
      <number>5</number>
     </property>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLineEdit" name="lineEditPath"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButtonBrowsePath">
-        <property name="text">
-         <string>&amp;Browse...</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
    </layout>
   </widget>
-  <widget class="QWizardPage" name="page2Description">
+  <widget class="Page2Description" name="page2Description">
    <property name="title">
     <string>Repository Description</string>
    </property>
@@ -49,27 +43,9 @@
    <attribute name="pageId">
     <string notr="true">2</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item>
-     <widget class="QLineEdit" name="lineEditDescription">
-      <property name="placeholderText">
-       <string>(none)</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>You can also set or change this later.</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <layout class="QVBoxLayout" name="verticalLayout_2"/>
   </widget>
-  <widget class="QWizardPage" name="page3Ref">
+  <widget class="Page3Ref" name="page3Ref">
    <property name="title">
     <string>Default Branch</string>
    </property>
@@ -79,55 +55,9 @@
    <attribute name="pageId">
     <string notr="true">3</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
-    <item>
-     <widget class="QLineEdit" name="lineEditRef">
-      <property name="placeholderText">
-       <string>master</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>This branch will be created and checked out into your working copy once your repository is created.</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QCheckBox" name="checkBoxBare">
-      <property name="text">
-       <string>&amp;Do not check out (create a bare repository)</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QCheckBox" name="checkBoxCustomWorkdir">
-      <property name="text">
-       <string>Check out at a &amp;custom location:</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLineEdit" name="lineEditWorkdir"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButtonBrowseWorkdir">
-        <property name="text">
-         <string>&amp;Browse...</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
+   <layout class="QVBoxLayout" name="verticalLayout_3"/>
   </widget>
-  <widget class="QWizardPage" name="page4Summary">
+  <widget class="Page4Summary" name="page4Summary">
    <property name="title">
     <string>Summary</string>
    </property>
@@ -137,24 +67,35 @@
    <attribute name="pageId">
     <string notr="true">4</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout_4">
-    <item>
-     <widget class="QLabel" name="labelSummary">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;
-&lt;p&gt;The following actions will be performed:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Create repository &lt;strong&gt;%1&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Create default branch &lt;strong&gt;%2&lt;/strong&gt;. &lt;a href=&quot;branch&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Check out default branch in &lt;strong&gt;goot/&lt;/strong&gt;. &lt;a href=&quot;checkout&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <layout class="QVBoxLayout" name="verticalLayout_4"/>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Page1Location</class>
+   <extends>QWizardPage</extends>
+   <header>Page1Location.hpp</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Page2Description</class>
+   <extends>QWizardPage</extends>
+   <header>Page2Description.hpp</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Page3Ref</class>
+   <extends>QWizardPage</extends>
+   <header>Page3Ref.hpp</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Page4Summary</class>
+   <extends>QWizardPage</extends>
+   <header>Page4Summary.hpp</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../../res/main.qrc"/>
  </resources>

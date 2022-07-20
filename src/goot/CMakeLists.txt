@@ -17,9 +17,20 @@ target_sources(
 		Gui/RepositoryWindow.hpp
 		Gui/RepositoryWindow.cpp
 		
-		Gui/InitWizard/InitWizard.ui
 		Gui/InitWizard/InitWizard.hpp
 		Gui/InitWizard/InitWizard.cpp
+		Gui/InitWizard/Page1Location.ui
+		Gui/InitWizard/Page1Location.hpp
+		Gui/InitWizard/Page1Location.cpp
+		Gui/InitWizard/Page2Description.ui
+		Gui/InitWizard/Page2Description.hpp
+		Gui/InitWizard/Page2Description.cpp
+		Gui/InitWizard/Page3Ref.ui
+		Gui/InitWizard/Page3Ref.hpp
+		Gui/InitWizard/Page3Ref.cpp
+		Gui/InitWizard/Page4Summary.ui
+		Gui/InitWizard/Page4Summary.hpp
+		Gui/InitWizard/Page4Summary.cpp
 
 		Gui/AboutDialog.ui
 		Gui/AboutDialog.hpp
