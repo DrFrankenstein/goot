@@ -1,4 +1,4 @@
-#include "InitWizard.hpp"
+#include "Wizard.hpp"
 
 #include <QDir>
 #include <QFileDialog>

@@ -1,7 +1,7 @@
 #include "MainWindow.hpp"
 
 #include "AboutDialog.hpp"
-#include "InitWizard/InitWizard.hpp"
+#include "InitWizard/Wizard.hpp"
 #include "RepositoryWindow.hpp"
 
 #include <QApplication>

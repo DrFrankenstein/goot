@@ -17,8 +17,8 @@ target_sources(
 		Gui/RepositoryWindow.hpp
 		Gui/RepositoryWindow.cpp
 		
-		Gui/InitWizard/InitWizard.hpp
-		Gui/InitWizard/InitWizard.cpp
+		Gui/InitWizard/Wizard.hpp
+		Gui/InitWizard/Wizard.cpp
 		Gui/InitWizard/Page1Location.ui
 		Gui/InitWizard/Page1Location.hpp
 		Gui/InitWizard/Page1Location.cpp
