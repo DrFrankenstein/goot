@@ -45,6 +45,11 @@ class Wizard : public QWizard
 	Git::Git& m_git;
 	Git::Repository m_repo;
 
+	Page1Location m_page1;
+	Page2Description m_page2;
+	Page3Ref m_page3;
+	Page4Summary m_page4;
+
 	bool m_mkdir  = false;
 	bool m_reinit = false;
 };

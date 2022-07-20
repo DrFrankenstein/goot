@@ -16,13 +16,13 @@ using std::make_unique, std::uint32_t;
 namespace Gui::InitWizard
 {
 Wizard::Wizard(Git::Git& git, QWidget* parent):
-    QWizard { parent }, m_git { git }
+    QWizard { parent }, m_git { git }, m_page1 { git }
 {
 	setPixmap(QWizard::LogoPixmap, { ":/icons/icons/fluency/icons8-new-repository-48.png" });
-	setPage(Page::Location, new Page1Location(git));
-	setPage(Page::Description, new Page2Description());
-	setPage(Page::Ref, new Page3Ref());
-	setPage(Page::Summary, new Page4Summary());
+	setPage(Page::Location, &m_page1);
+	setPage(Page::Description, &m_page2);
+	setPage(Page::Ref, &m_page3);
+	setPage(Page::Summary, &m_page4);
 }
 
 auto Wizard::getRepository() -> Git::Repository&
