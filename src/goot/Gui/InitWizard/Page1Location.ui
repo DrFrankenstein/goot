@@ -16,12 +16,12 @@
   </attribute>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLineEdit" name="lineEditPath_2"/>
+      <widget class="QLineEdit" name="lineEditPath"/>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonBrowsePath_2">
+      <widget class="QPushButton" name="pushButtonBrowsePath">
        <property name="text">
         <string>&amp;Browse...</string>
        </property>

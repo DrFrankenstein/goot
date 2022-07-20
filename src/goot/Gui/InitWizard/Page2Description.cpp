@@ -7,6 +7,8 @@ namespace Gui::InitWizard
 {
 Page2Description::Page2Description(QWidget* parent):
     QWizardPage { parent } 
-{ }
+{
+    ui.setupUi(this);
+}
 
 }

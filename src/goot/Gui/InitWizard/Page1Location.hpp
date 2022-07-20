@@ -2,8 +2,13 @@
 
 #include "ui_Page1Location.h"
 
+#include <memory>
 #include <QWidget>
 #include <QWizardPage>
+
+#include <git2xx/Git.hpp>
+
+#include "../utils/BrowseInput.hpp"
 
 class QString;
 
@@ -14,7 +19,7 @@ class Page1Location : public QWizardPage
 	Q_OBJECT
 	
 	public:
-	explicit Page1Location(QWidget* parent = nullptr);
+	explicit Page1Location(Git::Git& git, QWidget* parent = nullptr);
 
 	virtual auto initializePage() -> void override;
 	virtual auto validatePage() -> bool override;
@@ -25,6 +30,9 @@ class Page1Location : public QWizardPage
 	auto askSubrepo(const QString& path) -> bool;
 
 	Ui::Page1Location ui;
+	std::unique_ptr<Utils::BrowseInput> m_pathBrowse;
+
+	Git::Git& m_git;
 
 	bool m_reinit;
 	bool m_mkdir;

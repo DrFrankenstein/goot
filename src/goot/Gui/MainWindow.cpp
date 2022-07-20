@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget* parent):
 
 auto MainWindow::on_actionNew_triggered() -> void
 {
-	InitWizard wizard { git, this };
+	InitWizard::Wizard wizard { git, this };
 	if (wizard.exec() == QDialog::Accepted)
 		openRepo(wizard.getRepository());
 }

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "ui_InitWizard.h"
 #include "../utils/BrowseInput.hpp"
 
 #include <QByteArray>
@@ -9,27 +8,42 @@
 #include <git2xx/Repository.hpp>
 #include <utility>
 
+#include "Page1Location.hpp"
+#include "Page2Description.hpp"
+#include "Page3Ref.hpp"
+#include "Page4Summary.hpp"
+
 namespace Gui::InitWizard
 {
-class InitWizard : public QWizard
+class Wizard : public QWizard
 {
 	Q_OBJECT
 
+	enum class Page
+	{
+		Location,
+		Description,
+		Ref,
+		Summary
+	};
+
 	public:
-	explicit InitWizard(Git::Git& git, QWidget* parent = nullptr);
+	explicit Wizard(Git::Git& git, QWidget* parent = nullptr);
 
 	auto getRepository() -> Git::Repository&;
 
 	private:
+	inline auto setPage(Page id, QWizardPage* page)
+	{
+		return QWizard::setPage(static_cast<int>(id), page);
+	}
+
 	auto accept() -> void override;
 
 	auto makeOptions() -> Git::RepositoryInitOptions;
 
 	Git::Git& m_git;
 	Git::Repository m_repo;
-
-	std::unique_ptr<Utils::BrowseInput> m_pathBrowse;
-	std::unique_ptr<Utils::BrowseInput> m_workdirBrowse;
 
 	bool m_mkdir  = false;
 	bool m_reinit = false;

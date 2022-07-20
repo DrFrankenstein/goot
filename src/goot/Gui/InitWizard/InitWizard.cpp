@@ -15,40 +15,34 @@ using std::make_unique, std::uint32_t;
 
 namespace Gui::InitWizard
 {
-InitWizard::InitWizard(Git::Git& git, QWidget* parent):
+Wizard::Wizard(Git::Git& git, QWidget* parent):
     QWizard { parent }, m_git { git }
 {
 	setPixmap(QWizard::LogoPixmap, { ":/icons/icons/fluency/icons8-new-repository-48.png" });
-	
-	m_pathBrowse = make_unique<Utils::BrowseInput>(
-		this, *ui.lineEditPath, *ui.pushButtonBrowsePath, tr("Select repository location")
-	);
-	m_pathBrowse->dialog().setFileMode(QFileDialog::Directory);
-
-	m_workdirBrowse = make_unique<Utils::BrowseInput>(
-		this, *ui.lineEditWorkdir, *ui.pushButtonBrowseWorkdir, tr("Select working copy location")
-	);
-	m_workdirBrowse->dialog().setFileMode(QFileDialog::Directory);
+	setPage(Page::Location, new Page1Location(git));
+	setPage(Page::Description, new Page2Description());
+	setPage(Page::Ref, new Page3Ref());
+	setPage(Page::Summary, new Page4Summary());
 }
 
-auto InitWizard::getRepository() -> Git::Repository&
+auto Wizard::getRepository() -> Git::Repository&
 {
 	return m_repo;
 }
 
-auto InitWizard::accept() -> void
+auto Wizard::accept() -> void
 {
 	if (!validateCurrentPage())
 		return;
 
 	auto options = makeOptions();
 
-	m_repo = m_git.initRepository(ui.lineEditPath->text().toStdString(), options);
+	//m_repo = m_git.initRepository(ui.lineEditPath->text().toStdString(), options);
 
 	QWizard::accept();
 }
 
-auto InitWizard::makeOptions() -> Git::RepositoryInitOptions
+auto Wizard::makeOptions() -> Git::RepositoryInitOptions
 {
 	Git::RepositoryInitOptions options;
 
@@ -58,8 +52,9 @@ auto InitWizard::makeOptions() -> Git::RepositoryInitOptions
 	if (m_mkdir)
 		options.flags |= GIT_REPOSITORY_INIT_MKDIR;
 
+#if 0
 	if (ui.checkBoxBare->isChecked())
-		options.flags |= GIT_REPOSITORY_INIT_BARE;
+	options.flags |= GIT_REPOSITORY_INIT_BARE;
 	
 	// TODO add perms
 	options.mode = GIT_REPOSITORY_INIT_SHARED_UMASK;
@@ -74,6 +69,7 @@ auto InitWizard::makeOptions() -> Git::RepositoryInitOptions
 
 	if (ui.checkBoxCustomWorkdir->isChecked())
 		options.setWorkdirPath(ui.lineEditWorkdir->text().toStdString());
+#endif
 
 	return options;
 }

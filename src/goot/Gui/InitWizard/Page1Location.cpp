@@ -1,15 +1,30 @@
 #include "Page1Location.hpp"
 
+#include <memory>
 #include <QDir>
+#include <QFileDialog>
 #include <QMessageBox>
 #include <QString>
 #include <QWidget>
 
+#include <git2xx/Git.hpp>
+
+#include "../utils/BrowseInput.hpp"
+
+using std::make_unique;
+
 namespace Gui::InitWizard
 {
-Page1Location::Page1Location(QWidget* parent):
-    QWizardPage { parent } 
-{ }
+Page1Location::Page1Location(Git::Git& git, QWidget* parent):
+    QWizardPage { parent }, m_git { git }
+{
+	ui.setupUi(this);
+
+	m_pathBrowse = make_unique<Utils::BrowseInput>(
+		this, *ui.lineEditPath, *ui.pushButtonBrowsePath, tr("Select repository location")
+	);
+	m_pathBrowse->dialog().setFileMode(QFileDialog::Directory);
+}
 
 auto Page1Location::initializePage() -> void
 {

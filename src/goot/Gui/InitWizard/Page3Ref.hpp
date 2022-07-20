@@ -3,8 +3,11 @@
 
 #include "ui_Page3Ref.h"
 
+#include <memory>
 #include <QWidget>
 #include <QWizardPage>
+
+#include "../utils/BrowseInput.hpp"
 
 namespace Gui::InitWizard
 {
@@ -19,5 +22,7 @@ class Page3Ref : public QWizardPage
 
 	private:
 	Ui::Page3Ref ui;
+
+	std::unique_ptr<Utils::BrowseInput> m_workdirBrowse;
 };
 }
