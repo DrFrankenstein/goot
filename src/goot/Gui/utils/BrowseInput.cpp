@@ -11,9 +11,9 @@ class QWidget;
 namespace Gui::Utils
 {
 BrowseInput::BrowseInput(QObject* parent, QLineEdit& edit, QAbstractButton& browseButton, const QString& caption):
-    QObject { parent }, 
-	m_edit { edit }, 
-	m_browseButton { browseButton },
+    QObject { parent },
+    m_edit { edit },
+    m_browseButton { browseButton },
     m_dlg { qobject_cast<QWidget*>(parent), caption }
 {
 	connect(&m_browseButton, &QAbstractButton::clicked, this, &BrowseInput::onBrowseButtonClicked);

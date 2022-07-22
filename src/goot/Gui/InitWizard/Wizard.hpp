@@ -1,17 +1,16 @@
 #pragma once
 
 #include "../utils/BrowseInput.hpp"
+#include "Page1Location.hpp"
+#include "Page2Description.hpp"
+#include "Page3Ref.hpp"
+#include "Page4Summary.hpp"
 
 #include <QByteArray>
 #include <QWizard>
 #include <git2xx/Git.hpp>
 #include <git2xx/Repository.hpp>
 #include <utility>
-
-#include "Page1Location.hpp"
-#include "Page2Description.hpp"
-#include "Page3Ref.hpp"
-#include "Page4Summary.hpp"
 
 namespace Gui::InitWizard
 {

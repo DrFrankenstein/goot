@@ -1,14 +1,12 @@
 #pragma once
 
+#include "../utils/BrowseInput.hpp"
 #include "ui_Page1Location.h"
 
-#include <memory>
 #include <QWidget>
 #include <QWizardPage>
-
 #include <git2xx/Git.hpp>
-
-#include "../utils/BrowseInput.hpp"
+#include <memory>
 
 class QString;
 
@@ -17,7 +15,7 @@ namespace Gui::InitWizard
 class Page1Location : public QWizardPage
 {
 	Q_OBJECT
-	
+
 	public:
 	explicit Page1Location(Git::Git& git, QWidget* parent = nullptr);
 
