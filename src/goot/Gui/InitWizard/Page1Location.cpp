@@ -1,15 +1,14 @@
 #include "Page1Location.hpp"
 
-#include <memory>
+#include "../utils/BrowseInput.hpp"
+
 #include <QDir>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QString>
 #include <QWidget>
-
 #include <git2xx/Git.hpp>
-
-#include "../utils/BrowseInput.hpp"
+#include <memory>
 
 using std::make_unique;
 
@@ -21,8 +20,7 @@ Page1Location::Page1Location(Git::Git& git, QWidget* parent):
 	ui.setupUi(this);
 
 	m_pathBrowse = make_unique<Utils::BrowseInput>(
-		this, *ui.lineEditPath, *ui.pushButtonBrowsePath, tr("Select repository location")
-	);
+	    this, *ui.lineEditPath, *ui.pushButtonBrowsePath, tr("Select repository location"));
 	m_pathBrowse->dialog().setFileMode(QFileDialog::Directory);
 }
 
@@ -53,9 +51,9 @@ auto Page1Location::validatePage() -> bool
 
 	auto parent = dir;
 	parent.cdUp();
-	const auto parentPath = parent.path().toStdString();
+	const auto parentPath       = parent.path().toStdString();
 	const auto existingRepoPath = m_git.discoverRepository(path.toStdString(), false, parentPath);
-	const auto isRepo   = !existingRepoPath.view().empty();
+	const auto isRepo           = !existingRepoPath.view().empty();
 	if (isRepo)
 	{
 		if (!askReinit())
@@ -64,7 +62,7 @@ auto Page1Location::validatePage() -> bool
 		m_reinit = true;
 	}
 
-	const auto parentRepo = m_git.discoverRepository(parentPath);
+	const auto parentRepo  = m_git.discoverRepository(parentPath);
 	const auto isBelowRepo = !parentRepo.view().empty();
 	if (isBelowRepo)
 	{
@@ -79,7 +77,7 @@ auto Page1Location::validatePage() -> bool
 }
 
 auto Page1Location::askCreate(const QString& path) -> bool
-{	// FIXME: There's room for a lot of UX improvement here. I want to use a
+{  // FIXME: There's room for a lot of UX improvement here. I want to use a
 	// TaskDialog on Windows, but I'd either have to fall back on a message box
 	// on other platforms, or shim that in myself in pure Qt. Another option
 	// would be navigating to a special wizard page with the appropriate
@@ -94,7 +92,7 @@ auto Page1Location::askCreate(const QString& path) -> bool
 }
 
 auto Page1Location::askReinit() -> bool
-{	
+{
 	QMessageBox mbox { this };
 	mbox.setIcon(QMessageBox::Warning);
 	mbox.setText(tr("This folder is already a git repository. Do you want to re-initialize it?"));

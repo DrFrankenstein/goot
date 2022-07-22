@@ -15,10 +15,13 @@ class BrowseInput : public QObject
 	Q_PROPERTY(PathMode pathMode READ pathMode WRITE setPathMode)
 
 	public:
-	enum class PathMode { File, Url };
+	enum class PathMode
+	{
+		File,
+		Url
+	};
 
-	BrowseInput(QObject* parent, QLineEdit& edit, QAbstractButton& browseButton, 
-		const QString& caption = {});
+	BrowseInput(QObject* parent, QLineEdit& edit, QAbstractButton& browseButton, const QString& caption = {});
 
 	auto dialog() -> QFileDialog&;
 

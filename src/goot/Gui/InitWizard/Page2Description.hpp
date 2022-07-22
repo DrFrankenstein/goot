@@ -11,7 +11,7 @@ namespace Gui::InitWizard
 class Page2Description : public QWizardPage
 {
 	Q_OBJECT
-	
+
 	public:
 	explicit Page2Description(QWidget* parent = nullptr);
 

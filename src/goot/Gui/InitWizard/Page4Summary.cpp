@@ -6,7 +6,7 @@
 namespace Gui::InitWizard
 {
 Page4Summary::Page4Summary(QWidget* parent):
-    QWizardPage { parent } 
+    QWizardPage { parent }
 { }
 
 }
