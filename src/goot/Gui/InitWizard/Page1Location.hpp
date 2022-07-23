@@ -19,8 +19,8 @@ class Page1Location : public QWizardPage
 	public:
 	explicit Page1Location(Git::Git& git, QWidget* parent = nullptr);
 
-	virtual auto initializePage() -> void override;
-	virtual auto validatePage() -> bool override;
+	auto initializePage() -> void override;
+	auto validatePage() -> bool override;
 
 	private:
 	auto askCreate(const QString& path) -> bool;
