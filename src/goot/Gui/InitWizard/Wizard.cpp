@@ -37,7 +37,7 @@ auto Wizard::accept() -> void
 
 	auto options = makeOptions();
 
-	//m_repo = m_git.initRepository(ui.lineEditPath->text().toStdString(), options);
+	// m_repo = m_git.initRepository(ui.lineEditPath->text().toStdString(), options);
 
 	QWizard::accept();
 }

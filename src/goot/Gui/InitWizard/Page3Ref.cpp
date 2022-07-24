@@ -15,7 +15,8 @@ Page3Ref::Page3Ref(QWidget* parent):
 	ui.setupUi(this);
 
 	m_workdirBrowse = make_unique<Utils::BrowseInput>(
-	    this, *ui.lineEditWorkdir, *ui.pushButtonBrowseWorkdir, tr("Select working copy location"));
+	    this, *ui.lineEditWorkdir, *ui.pushButtonBrowseWorkdir, tr("Select working copy location")
+	);
 	m_workdirBrowse->dialog().setFileMode(QFileDialog::Directory);
 }
 

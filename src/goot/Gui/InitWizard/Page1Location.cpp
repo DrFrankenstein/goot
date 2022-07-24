@@ -20,14 +20,15 @@ Page1Location::Page1Location(Git::Git& git, QWidget* parent):
 	ui.setupUi(this);
 
 	m_pathBrowse = make_unique<Utils::BrowseInput>(
-	    this, *ui.lineEditPath, *ui.pushButtonBrowsePath, tr("Select repository location"));
+	    this, *ui.lineEditPath, *ui.pushButtonBrowsePath, tr("Select repository location")
+	);
 	m_pathBrowse->dialog().setFileMode(QFileDialog::Directory);
 }
 
 auto Page1Location::initializePage() -> void
 {
 	m_reinit = false;
-	m_mkdir  = false;
+	m_mkdir = false;
 }
 
 auto Page1Location::validatePage() -> bool
@@ -51,9 +52,9 @@ auto Page1Location::validatePage() -> bool
 
 	auto parent = dir;
 	parent.cdUp();
-	const auto parentPath       = parent.path().toStdString();
+	const auto parentPath = parent.path().toStdString();
 	const auto existingRepoPath = m_git.discoverRepository(path.toStdString(), false, parentPath);
-	const auto isRepo           = !existingRepoPath.view().empty();
+	const auto isRepo = !existingRepoPath.view().empty();
 	if (isRepo)
 	{
 		if (!askReinit())
@@ -62,7 +63,7 @@ auto Page1Location::validatePage() -> bool
 		m_reinit = true;
 	}
 
-	const auto parentRepo  = m_git.discoverRepository(parentPath);
+	const auto parentRepo = m_git.discoverRepository(parentPath);
 	const auto isBelowRepo = !parentRepo.view().empty();
 	if (isBelowRepo)
 	{

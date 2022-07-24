@@ -48,22 +48,25 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 
 AccessModifierOffset: 0
-AlignConsecutiveAssignments: true
+AlignAfterOpenBracket: BlockIndent
+AlignArrayOfStructures: Left
+AlignConsecutiveAssignments: false
 AlignEscapedNewlines: Left
 AlignTrailingComments: true
 
 #AllowAllConstructorInitializersOnNextLine: true
 AllowShortBlocksOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: true
+AllowShortEnumsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: All
 AllowShortIfStatementsOnASingleLine: false
-#AllowShortLambdasOnASingleLine: All
+AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 BinPackArguments: true
 BinPackParameters: false
-BreakAfterJavaFieldAnnotations: false
+BreakAfterJavaFieldAnnotations: true
 BreakBeforeBinaryOperators: All
 BreakBeforeInheritanceComma: false
 BreakBeforeTernaryOperators: false
@@ -86,7 +89,8 @@ KeepEmptyLinesAtTheStartOfBlocks: false
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: None
 PointerAlignment: Left
+ReferenceAlignment: Left
 ReflowComments: true
 SortIncludes: true
 SortUsingDeclarations: true
-Standard: Cpp11
+Standard: Latest

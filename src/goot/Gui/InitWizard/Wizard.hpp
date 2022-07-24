@@ -49,7 +49,7 @@ class Wizard : public QWizard
 	Page3Ref m_page3;
 	Page4Summary m_page4;
 
-	bool m_mkdir  = false;
+	bool m_mkdir = false;
 	bool m_reinit = false;
 };
 }
