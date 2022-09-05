@@ -23,7 +23,7 @@
 &lt;ul&gt;
 &lt;li&gt;Create repository &lt;strong&gt;%1&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Create default branch &lt;strong&gt;%2&lt;/strong&gt;. &lt;a href=&quot;branch&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Check out default branch in &lt;strong&gt;goot/&lt;/strong&gt;. &lt;a href=&quot;checkout&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Check out default branch in &lt;strong&gt;%3&lt;/strong&gt;. &lt;a href=&quot;checkout&quot;&gt;Change&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/body&gt;&lt;/html&gt;</string>
      </property>

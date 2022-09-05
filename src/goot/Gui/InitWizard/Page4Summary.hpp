@@ -16,6 +16,8 @@ class Page4Summary : public QWizardPage
 	explicit Page4Summary(QWidget* parent = nullptr);
 
 	private:
+	auto initializePage() -> void override;
+
 	Ui::Page4Summary ui;
 };
 }
