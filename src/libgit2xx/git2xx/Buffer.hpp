@@ -36,7 +36,9 @@ class Buffer
 	auto operator&() -> git_buf* { return &m_buf; }
 
 	auto data() { return std::span {m_buf.ptr, m_buf.size}; }
+	auto data() const -> const std::span<char> { return std::span {m_buf.ptr, m_buf.size}; }
 	auto view() { return std::string_view { m_buf.ptr, m_buf.size }; }
+	auto view() const -> const std::string_view { return std::string_view { m_buf.ptr, m_buf.size }; }
 
 	private:
 	git_buf m_buf;

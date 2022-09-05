@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Page1Location</class>
+ <widget class="QWizardPage" name="Page1Location">
+  <property name="windowTitle">
+   <string>WizardPage</string>
+  </property>
+  <property name="title">
+   <string>Repository Location</string>
+  </property>
+  <property name="subTitle">
+   <string>Pick the folder where your repository will be located.</string>
+  </property>
+  <attribute name="pageId">
+   <string notr="true">1</string>
+  </attribute>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLineEdit" name="lineEditPath"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonBrowsePath">
+       <property name="text">
+        <string>&amp;Browse...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

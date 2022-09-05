@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Page2Description</class>
+ <widget class="QWizardPage" name="Page2Description">
+  <property name="windowTitle">
+   <string>WizardPage</string>
+  </property>
+  <property name="title">
+   <string>Repository Description</string>
+  </property>
+  <property name="subTitle">
+   <string>Write a short description for your repository. (Optional)</string>
+  </property>
+  <attribute name="pageId">
+   <string notr="true">2</string>
+  </attribute>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLineEdit" name="lineEditDescription">
+     <property name="placeholderText">
+      <string>(none)</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>You can also set or change this later.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
