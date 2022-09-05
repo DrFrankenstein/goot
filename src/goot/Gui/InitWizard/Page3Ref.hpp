@@ -18,9 +18,9 @@ class Page3Ref : public QWizardPage
 	public:
 	explicit Page3Ref(QWidget* parent = nullptr);
 
-	virtual auto initializePage() -> void override;
-
 	private:
+	auto initializePage() -> void override;
+
 	Ui::Page3Ref ui;
 
 	std::unique_ptr<Utils::BrowseInput> m_workdirBrowse;

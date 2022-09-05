@@ -19,10 +19,10 @@ class Page1Location : public QWizardPage
 	public:
 	explicit Page1Location(Git::Git& git, QWidget* parent = nullptr);
 
+	private:
 	auto initializePage() -> void override;
 	auto validatePage() -> bool override;
 
-	private:
 	auto askCreate(const QString& path) -> bool;
 	auto askReinit() -> bool;
 	auto askSubrepo(const QString& path) -> bool;
