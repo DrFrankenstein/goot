@@ -37,12 +37,13 @@ auto Wizard::accept() -> void
 
 	auto options = makeOptions();
 
-	// m_repo = m_git.initRepository(ui.lineEditPath->text().toStdString(), options);
+	const auto path = field(Fields::path.toString()).toString().toStdString();
+	m_repo = m_git.initRepository(path, options);
 
 	QWizard::accept();
 }
 
-auto Wizard::makeOptions() -> Git::RepositoryInitOptions
+auto Wizard::makeOptions() const -> Git::RepositoryInitOptions
 {
 	Git::RepositoryInitOptions options;
 
@@ -52,24 +53,27 @@ auto Wizard::makeOptions() -> Git::RepositoryInitOptions
 	if (m_mkdir)
 		options.flags |= GIT_REPOSITORY_INIT_MKDIR;
 
-#if 0
-	if (ui.checkBoxBare->isChecked())
-	options.flags |= GIT_REPOSITORY_INIT_BARE;
-	
+	const auto bare = field(Fields::bare.toString()).toBool();
+	if (bare)
+		options.flags |= GIT_REPOSITORY_INIT_BARE;
+
 	// TODO add perms
 	options.mode = GIT_REPOSITORY_INIT_SHARED_UMASK;
 
-	const auto description = ui.lineEditDescription->text();
+	const auto description = field(Fields::description.toString()).toString();
 	if (!description.isEmpty())
 		options.setDescription(description.toStdString());
 
-	const auto initialHead = ui.lineEditRef->text();
+	const auto initialHead = field(Fields::ref.toString()).toString();
 	if (!initialHead.isEmpty())
 		options.setInitialHead(initialHead.toStdString());
 
-	if (ui.checkBoxCustomWorkdir->isChecked())
-		options.setWorkdirPath(ui.lineEditWorkdir->text().toStdString());
-#endif
+	const auto hasCustomWorkDir = field(Fields::customWorkdir.toString()).toBool();
+	if (hasCustomWorkDir)
+	{
+		const auto workdir = field(Fields::workdir.toString()).toString();
+		options.setWorkdirPath(workdir.toStdString());
+	}
 
 	return options;
 }

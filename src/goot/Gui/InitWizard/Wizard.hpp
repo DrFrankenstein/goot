@@ -7,6 +7,8 @@
 #include "Page4Summary.hpp"
 
 #include <QByteArray>
+#include <QString>
+#include <QStringView>
 #include <QWizard>
 #include <git2xx/Git.hpp>
 #include <git2xx/Repository.hpp>
@@ -14,6 +16,21 @@
 
 namespace Gui::InitWizard
 {
+namespace Fields
+{
+// Page 1
+constexpr auto path = QStringView { u"path" };
+
+// Page 2
+constexpr auto description = QStringView { u"description" };
+
+// Page 3
+constexpr auto ref = QStringView { u"ref" };
+constexpr auto bare = QStringView { u"bare" };
+constexpr auto customWorkdir = QStringView { u"customWorkdir" };
+constexpr auto workdir = QStringView { u"workdir" };
+}
+
 class Wizard : public QWizard
 {
 	Q_OBJECT
@@ -39,7 +56,7 @@ class Wizard : public QWizard
 
 	auto accept() -> void override;
 
-	auto makeOptions() -> Git::RepositoryInitOptions;
+	auto makeOptions() const -> Git::RepositoryInitOptions;
 
 	Git::Git& m_git;
 	Git::Repository m_repo;

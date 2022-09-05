@@ -1,7 +1,9 @@
 #include "Page1Location.hpp"
 
 #include "../utils/BrowseInput.hpp"
+#include "Wizard.hpp"
 
+#include <QChar>
 #include <QDir>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -23,6 +25,8 @@ Page1Location::Page1Location(Git::Git& git, QWidget* parent):
 	    this, *ui.lineEditPath, *ui.pushButtonBrowsePath, tr("Select repository location")
 	);
 	m_pathBrowse->dialog().setFileMode(QFileDialog::Directory);
+
+	registerField(Fields::path.toString(), ui.lineEditPath);
 }
 
 auto Page1Location::initializePage() -> void
