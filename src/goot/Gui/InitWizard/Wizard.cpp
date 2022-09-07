@@ -38,7 +38,7 @@ auto Wizard::accept() -> void
 	auto options = makeOptions();
 
 	const auto path = field(Fields::path.toString()).toString().toStdString();
-	m_repo = m_git.initRepository(path, options);
+	m_repo = Git::Repository::init(m_git, path, options);
 
 	QWizard::accept();
 }

@@ -10,6 +10,7 @@
 #include <QString>
 #include <QWidget>
 #include <git2xx/Git.hpp>
+#include <git2xx/Repository.hpp>
 #include <memory>
 
 using std::make_unique;
@@ -57,7 +58,7 @@ auto Page1Location::validatePage() -> bool
 	auto parent = dir;
 	parent.cdUp();
 	const auto parentPath = parent.path().toStdString();
-	const auto existingRepoPath = m_git.discoverRepository(path.toStdString(), false, parentPath);
+	const auto existingRepoPath = Git::Repository::discover(m_git, path.toStdString(), false, parentPath);
 	const auto isRepo = !existingRepoPath.view().empty();
 	if (isRepo)
 	{
@@ -67,7 +68,7 @@ auto Page1Location::validatePage() -> bool
 		m_reinit = true;
 	}
 
-	const auto parentRepo = m_git.discoverRepository(parentPath);
+	const auto parentRepo = Git::Repository::discover(m_git, parentPath);
 	const auto isBelowRepo = !parentRepo.view().empty();
 	if (isBelowRepo)
 	{

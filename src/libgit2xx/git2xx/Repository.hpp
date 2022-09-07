@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Buffer.hpp"
 #include "Error.hpp"
 
 #include <git2/errors.h>
@@ -10,6 +11,8 @@
 
 namespace Git
 {
+class Git;
+
 class Repository
 {
 	public:
@@ -37,7 +40,60 @@ class Repository
 
 	operator bool() { return m_repo != nullptr; }
 	operator git_repository*() { return m_repo; }
-	auto operator&() -> git_repository** { return &m_repo; }
+
+	static auto open(
+	    [[maybe_unused]] const Git& git,
+	    const std::string& path,
+	    git_repository_open_flag_t flags = GIT_REPOSITORY_OPEN_NO_SEARCH,
+	    const std::string& ceiling_dirs = {}
+	)
+	{
+		git_repository* ptr = nullptr;
+		const auto status = git_repository_open_ext(
+		    &ptr,
+		    path.c_str(),
+		    flags,
+		    ceiling_dirs.empty() ? nullptr : ceiling_dirs.c_str()
+		);
+
+		Repository repo { ptr };
+		ensureOk(status);
+
+		return repo;
+	}
+
+	static auto init(
+	    [[maybe_unused]] const Git& git,
+	    const std::string& path,
+	    git_repository_init_options& options
+	)
+	{
+		git_repository* ptr = nullptr;
+		const auto status = git_repository_init_ext(&ptr, path.c_str(), &options);
+
+		Repository repo { ptr };
+		ensureOk(status);
+
+		return repo;
+	}
+
+	static auto discover(
+	    [[maybe_unused]] const Git& git,
+	    const std::string& path,
+	    bool across_fs = false,
+	    const std::string& ceiling_dirs = {}
+	)
+	{
+		Buffer foundPath;
+		const auto status = git_repository_discover(&foundPath, path.c_str(), across_fs, ceiling_dirs.c_str());
+
+		// in the case of ENOTFOUND, just return an empty path
+		// git_repository_discover is the only way to test for an existing repo
+		if (status != GIT_OK && status != GIT_ENOTFOUND)
+			throw Error { status };
+
+		return foundPath;
+	}
 
 	private:
 	git_repository* m_repo;
