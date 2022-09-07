@@ -1,13 +1,13 @@
 
 #pragma once
 
+#include "../utils/BrowseInput.hpp"
 #include "ui_Page3Ref.h"
 
-#include <memory>
-#include <QWidget>
 #include <QWizardPage>
+#include <memory>
 
-#include "../utils/BrowseInput.hpp"
+class QWidget;
 
 namespace Gui::InitWizard
 {

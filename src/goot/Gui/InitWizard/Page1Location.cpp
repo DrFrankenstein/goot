@@ -9,7 +9,6 @@
 #include <QMessageBox>
 #include <QString>
 #include <QWidget>
-#include <git2xx/Git.hpp>
 #include <git2xx/Repository.hpp>
 #include <memory>
 

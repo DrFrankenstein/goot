@@ -5,10 +5,14 @@
 
 #include <QWidget>
 #include <QWizardPage>
-#include <git2xx/Git.hpp>
 #include <memory>
 
 class QString;
+
+namespace Git
+{
+class Git;
+}
 
 namespace Gui::InitWizard
 {
