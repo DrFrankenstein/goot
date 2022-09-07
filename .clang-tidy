@@ -1,5 +1,5 @@
 Checks:	"
-	boost-*,
+	boost-use-to-string,
 	bugprone-*,
 	cppcoreguidelines-*,
 	clang-analyzer-*,
@@ -9,3 +9,6 @@ Checks:	"
 	portability-*,
 	readability-*
 "
+CheckOptions:
+	- key: readability-braces-around-statements
+	  value: 1
