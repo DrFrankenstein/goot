@@ -3,8 +3,9 @@
 
 #include "ui_Page2Description.h"
 
-#include <QWidget>
 #include <QWizardPage>
+
+class QWidget;
 
 namespace Gui::InitWizard
 {

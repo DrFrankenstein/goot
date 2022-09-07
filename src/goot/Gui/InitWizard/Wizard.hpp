@@ -6,13 +6,14 @@
 #include "Page3Ref.hpp"
 #include "Page4Summary.hpp"
 
-#include <QByteArray>
-#include <QString>
 #include <QStringView>
 #include <QWizard>
-#include <git2xx/Git.hpp>
 #include <git2xx/Repository.hpp>
-#include <utility>
+
+namespace Git
+{
+class Git;
+}
 
 namespace Gui::InitWizard
 {

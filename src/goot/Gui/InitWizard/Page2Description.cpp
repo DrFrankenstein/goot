@@ -2,7 +2,7 @@
 
 #include "Wizard.hpp"
 
-#include <QWidget>
+#include <QWizardPage>
 
 namespace Gui::InitWizard
 {

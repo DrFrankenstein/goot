@@ -3,7 +3,6 @@
 
 #include "Wizard.hpp"
 
-#include <QWidget>
 #include <QWizardPage>
 #include <memory>
 

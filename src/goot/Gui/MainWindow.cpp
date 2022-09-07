@@ -11,7 +11,6 @@
 #include <QMessageBox>
 #include <QWhatsThis>
 #include <git2xx/Error.hpp>
-#include <git2xx/Git.hpp>
 #include <git2xx/Repository.hpp>
 #include <utility>
 
@@ -41,7 +40,7 @@ auto MainWindow::on_actionOpen_triggered() -> void
 
 	try
 	{
-		auto repo = git.openRepository(path.toStdString());
+		auto repo = Git::Repository::open(git, path.toStdString());
 		openRepo(repo);
 	}
 	catch (const Git::Error& error)
