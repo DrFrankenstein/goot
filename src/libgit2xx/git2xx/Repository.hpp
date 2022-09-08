@@ -41,6 +41,181 @@ class Repository
 	operator bool() { return m_repo != nullptr; }
 	operator git_repository*() { return m_repo; }
 
+	auto commonDir() const
+	{
+		const auto dir = git_repository_commondir(m_repo);
+		return std::string_view { dir };
+	}
+
+	auto detachHead()
+	{
+		const auto status = git_repository_detach_head(m_repo);
+		ensureOk(status);
+	}
+
+	// TODO: fetch heads
+
+	auto getNamespace()
+	{
+		const auto ns = git_repository_get_namespace(m_repo);
+		return std::string_view { ns };
+	}
+
+	auto setNamespace(const std::string& ns)
+	{
+		const auto status = git_repository_set_namespace(m_repo, ns.c_str());
+		ensureOk(status);
+	}
+
+	// TODO: hashFile (needs oid)
+
+	// TODO: head (needs reference)
+	// TODO: head(worktree) (needs reference)
+
+	auto setHead(const std::string& refname)
+	{
+		const auto status = git_repository_set_head(m_repo, refname.c_str());
+		ensureOk(status);
+	}
+
+	// TODO: setHeadDetached(oid)
+	// TODO: setHeadDetached(annotated commit)
+
+	auto isHeadDetached()
+	{
+		const auto result = git_repository_head_detached(m_repo);
+		ensureOk(result);
+
+		return static_cast<bool>(result);
+	}
+
+	auto isHeadDetached(const std::string& worktree)
+	{
+		const auto result = git_repository_head_detached_for_worktree(m_repo, worktree.c_str());
+		ensureOk(result);
+
+		return static_cast<bool>(result);
+	}
+
+	auto isHeadUnborn()
+	{
+		const auto result = git_repository_head_unborn(m_repo);
+		ensureOk(result);
+
+		return static_cast<bool>(result);
+	}
+
+	auto ident() const
+	{
+		const char* name = nullptr;
+		const char* email = nullptr;
+		const auto status = git_repository_ident(&name, &email, m_repo);
+		ensureOk(status);
+
+		return std::pair { std::string_view { name }, std::string_view { email } };
+	}
+
+	auto setIdent(const std::string& name, const std::string& email)
+	{
+		const auto status = git_repository_set_ident(m_repo, name.c_str(), email.c_str());
+		ensureOk(status);
+	}
+
+	// TODO: index (needs index)
+
+	auto isBare() const
+	{
+		const auto result = git_repository_is_bare(m_repo);
+		ensureOk(result);
+
+		return static_cast<bool>(result);
+	}
+
+	auto isEmpty()
+	{
+		const auto result = git_repository_is_empty(m_repo);
+		ensureOk(result);
+
+		return static_cast<bool>(result);
+	}
+
+	auto isShallow()
+	{
+		const auto result = git_repository_is_shallow(m_repo);
+		ensureOk(result);
+
+		return static_cast<bool>(result);
+	}
+
+	auto isWorkTree() const
+	{
+		const auto result = git_repository_is_worktree(m_repo);
+		ensureOk(result);
+
+		return static_cast<bool>(result);
+	}
+
+	auto getItemPath(git_repository_item_t item) const
+	{
+		Buffer buf;
+		const auto status = git_repository_item_path(&buf, m_repo, item);
+		ensureOk(status);
+
+		return buf;
+	}
+
+	// TODO: merge heads
+
+	auto message()
+	{
+		Buffer buf;
+		const auto status = git_repository_message(&buf, m_repo);
+		ensureOk(status);
+
+		return buf;
+	}
+
+	auto removeMessage()
+	{
+		const auto status = git_repository_message_remove(m_repo);
+		ensureOk(status);
+	}
+
+	// TODO: odb (needs odb)
+
+	auto path() const
+	{
+		const auto path = git_repository_path(m_repo);
+		return std::string_view { path };
+	}
+
+	auto workdir() const
+	{
+		const auto result = git_repository_workdir(m_repo);
+		return std::string_view { result };
+	}
+
+	auto setWorkdir(const std::string& workdir, bool update_gitlink = false)
+	{
+		const auto status = git_repository_set_workdir(m_repo, workdir.c_str(), update_gitlink);
+		ensureOk(status);
+	}
+
+	// TODO: refdb (needs refdb)
+
+	auto state()
+	{
+		const auto result = git_repository_state(m_repo);
+
+		return static_cast<git_repository_state_t>(result);
+	}
+
+	auto cleanupState()
+	{
+		const auto status = git_repository_state_cleanup(m_repo);
+		ensureOk(status);
+	}
+
 	static auto open(
 	    [[maybe_unused]] const Git& git,
 	    const std::string& path,
@@ -62,6 +237,8 @@ class Repository
 		return repo;
 	}
 
+	// TODO: open (worktree)
+
 	static auto init(
 	    [[maybe_unused]] const Git& git,
 	    const std::string& path,
@@ -76,6 +253,8 @@ class Repository
 
 		return repo;
 	}
+
+	// TODO: wrap (odb)
 
 	static auto discover(
 	    [[maybe_unused]] const Git& git,
