@@ -2,6 +2,7 @@
 
 #include "Buffer.hpp"
 #include "Error.hpp"
+#include "Oid.hpp"
 
 #include <git2/errors.h>
 #include <git2/repository.h>
@@ -67,7 +68,23 @@ class Repository
 		ensureOk(status);
 	}
 
-	// TODO: hashFile (needs oid)
+	auto hashFile(const std::string& path, git_object_t type)
+	{
+		Oid oid;
+		const auto status = git_repository_hashfile(&oid, m_repo, path.c_str(), type, nullptr);
+		ensureOk(status);
+
+		return oid;
+	}
+
+	auto hashFile(const std::string& path, git_object_t type, const std::string& as_path)
+	{
+		Oid oid;
+		const auto status = git_repository_hashfile(&oid, m_repo, path.c_str(), type, as_path.c_str());
+		ensureOk(status);
+
+		return oid;
+	}
 
 	// TODO: head (needs reference)
 	// TODO: head(worktree) (needs reference)
@@ -78,7 +95,12 @@ class Repository
 		ensureOk(status);
 	}
 
-	// TODO: setHeadDetached(oid)
+	auto setHeadDetached(const Oid& committish)
+	{
+		const auto status = git_repository_set_head_detached(m_repo, &committish);
+		ensureOk(status);
+	}
+
 	// TODO: setHeadDetached(annotated commit)
 
 	auto isHeadDetached()
