@@ -9,6 +9,7 @@ target_sources(
 
 		git2xx/Buffer.hpp
 		git2xx/Error.hpp
+		git2xx/Oid.hpp
 		git2xx/Options.hpp
 		git2xx/StrArray.hpp
 
