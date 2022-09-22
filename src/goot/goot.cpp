@@ -1,6 +1,7 @@
 #include "Gui/MainWindow.hpp"
 
 #include <QApplication>
+#include <git2xx/Reference.hpp>
 
 using Gui::MainWindow;
 

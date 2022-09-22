@@ -11,6 +11,7 @@ target_sources(
 		git2xx/Error.hpp
 		git2xx/Oid.hpp
 		git2xx/Options.hpp
+		git2xx/Reference.hpp
 		git2xx/StrArray.hpp
 
 		git2xx/Repository.hpp
