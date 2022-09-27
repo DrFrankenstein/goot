@@ -20,7 +20,7 @@ conan_cmake_configure(
 	REQUIRES
 		openssl/1.1.1m
 		libgit2/1.3.0
-		qt/6.2.4
+		qt/6.3.1
 	OPTIONS
 		qt:qttools=True
 		qt:shared=True
