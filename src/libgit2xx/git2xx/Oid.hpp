@@ -2,6 +2,7 @@
 
 #include "Error.hpp"
 
+#include <algorithm>
 #include <cstddef>
 #include <exception>
 #include <git2/oid.h>
