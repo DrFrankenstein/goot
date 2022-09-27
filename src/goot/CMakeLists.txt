@@ -47,6 +47,24 @@ target_include_directories(
 		${CMAKE_CURRENT_BINARY_DIR}
 )
 
+target_precompile_headers(
+	goot
+	PRIVATE
+		<algorithm>
+		<cstddef>
+		<numeric>
+		<ranges>
+		<span>
+		<string>
+		<string_view>
+		<utility>
+		<git2xx.hpp>
+		<QList>
+		<QObject>
+		<QString>
+		<QWidget>
+)
+
 target_link_libraries(
 	goot
 	PRIVATE
