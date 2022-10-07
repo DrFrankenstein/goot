@@ -18,7 +18,7 @@ struct Oid : git_oid
 {
 	Oid()
 	{
-		std::ranges::fill(id, unsigned char {});
+		std::ranges::fill(id, (unsigned char){});
 	}
 
 	Oid(std::string_view str)
