@@ -1,4 +1,4 @@
-add_executable(goot)
+qt_add_executable(goot)
 
 target_sources(
 	goot
@@ -79,22 +79,17 @@ if(WIN32)
 		PRIVATE
 			dwrite	# QtGui (dep of QtWidgets) seems to need that
 	)
-
-	if(CMAKE_BUILD_TYPE STREQUAL Debug)
-		set(DEPLOYQT_BUILD_TYPE --debug)
-	elseif(CMAKE_BUILD_TYPE STREQUAL Release)
-		set(DEPLOYQT_BUILD_TYPE --release)
-	elseif(CMAKE_BUILD_TYPE STREQUAL RelWithDebInfo)
-		set(DEPLOYQT_BUILD_TYPE --release-with-debug-info)
-	endif()
-
-	find_program(DEPLOYQT windeployqt REQUIRED)
-
-	add_custom_target(
-		windeployqt
-		ALL
-		${DEPLOYQT} ${DEPLOYQT_BUILD_TYPE} $<TARGET_FILE:goot>
-		DEPENDS goot
-		COMMENT "Copying Qt libraries to output dir"
-	)
 endif()
+
+install(
+	TARGETS goot
+	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
+
+qt_generate_deploy_app_script(
+	TARGET goot
+	FILENAME_VARIABLE qtdeploy
+	NO_UNSUPPORTED_PLATFORM_ERROR
+)
+message(NOTICE ${qtdeploy})
+install(SCRIPT ${qtdeploy})

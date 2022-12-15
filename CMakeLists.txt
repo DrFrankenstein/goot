@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.19)
 
 project(
 	goot
@@ -7,11 +7,6 @@ project(
 )
 
 include(compile_options.cmake)
-
-# replace with qt_standard_project_setup() once we're on 6.4.
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 include(3rd-party/cmake-conan/conan.cmake)
@@ -39,7 +34,7 @@ conan_cmake_install(
 )
 
 find_package(libgit2 REQUIRED)
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 
 find_package(Git)
 if(NOT ${GIT_FOUND})
@@ -54,5 +49,7 @@ else()
 endif()
 
 string(TIMESTAMP BUILD_YEAR "%Y")
+
+qt_standard_project_setup()
 
 add_subdirectory(src)
