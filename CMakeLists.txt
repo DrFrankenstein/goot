@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.16)
 
 project(
 	goot
@@ -18,9 +18,10 @@ include(3rd-party/cmake-conan/conan.cmake)
 
 conan_cmake_configure(
 	REQUIRES
-		openssl/1.1.1m
+		openssl/1.1.1q
 		libgit2/1.3.0
-		qt/6.2.4
+		qt/6.3.1
+		zlib/1.2.12
 	OPTIONS
 		qt:qttools=True
 		qt:shared=True
