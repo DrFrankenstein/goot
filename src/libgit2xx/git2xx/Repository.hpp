@@ -5,6 +5,7 @@
 #include "Oid.hpp"
 
 #include <git2/errors.h>
+#include <git2/refs.h>
 #include <git2/repository.h>
 #include <string>
 #include <string_view>
@@ -86,8 +87,27 @@ class Repository
 		return oid;
 	}
 
-	// TODO: head (needs reference)
-	// TODO: head(worktree) (needs reference)
+	// These return raw git_reference* to avoid a circular dependency between
+	// Repository.hpp and Reference.hpp.
+	// You may (and should) make your own Repository objects out of them.
+
+	auto head()
+	{
+		git_reference* ref = nullptr;
+		const auto status = git_repository_head(&ref, m_repo);
+		ensureOk(status);
+
+		return ref;
+	}
+
+	auto head(const std::string& worktree)
+	{
+		git_reference* ref = nullptr;
+		const auto status = git_repository_head_for_worktree(&ref, m_repo, worktree.c_str());
+		ensureOk(status);
+
+		return ref;
+	}
 
 	auto setHead(const std::string& refname)
 	{
