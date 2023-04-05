@@ -259,9 +259,6 @@ class Reference
 
 class ReferenceIterator
 {
-	// This is an InputIterator-ish: it's close enough, but it's not copyable
-	// because git_reference_iterator can't be copied either.
-
 	public:
 	using iterator_category = std::forward_iterator_tag;
 	using difference_type = std::ptrdiff_t;
@@ -286,8 +283,6 @@ class ReferenceIterator
 
 		consume();
 	}
-
-	ReferenceIterator() { }
 
 	~ReferenceIterator()
 	{
